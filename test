@@ -1,0 +1,26 @@
+Query
+DB에서 무언가를 요청하고 GraphQL 언어로 내가 원하는 정보를 알려줄 수 있다.
+
+예를들면 수십개의 feed 중에서 "댓글, 좋아요 수"만 원할 경우 아래와 같은 Query를 GraphQL의 Backend에 보내면 이게 이와 같은 요청 정보를 담은 Object를 보낸다.
+{
+    feed {
+        comments
+        likeNumber
+    }
+}
+
+그리고 GraphQL에서 보낸 자바스크립트 Object는 이런 형태다.
+{
+    feed: [
+        {
+            comments: 1,
+            likeNumber: 20
+        }
+    ]
+}
+
+
+즉, 내가 요청한 정보들만 받을 수 있고
+내가 원하는 방식으로 조정할 수 있다.
+
+

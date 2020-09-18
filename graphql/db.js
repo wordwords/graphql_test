@@ -2,15 +2,7 @@ import fetch from "node-fetch";
 const API_URL = "https://api.manana.kr/calendar.json";
 
 
-// [예시1] 만약 외부 RESTful API를 가져오는 경우 (이번달 매주 월요일 데이터 가져오기)
-export const getDay = () => {
-    return fetch(`${API_URL}`)
-        .then(res => res.json())
-        .then(json => json)
-}
-
-
-// [예시2] 만약 데이터베이스에서 이런 형태로 데이터 가져온 경우
+// [예시1] 만약 데이터베이스에서 이런 형태로 데이터 가져온 경우
 let movies = [
     {
         id: 0,
@@ -27,9 +19,7 @@ let movies = [
         name: "이름3",
         score: 13
     },
-
 ]; 
-
 
 // DB에서 가져온 데이터 전체출력 예시
 export const getMovies = () => movies;
@@ -62,3 +52,24 @@ export const addMovie = (name, score) => {
     movies.push(newMovie);
     return newMovie;
 }
+
+
+
+
+// [예시2] 만약 외부 RESTful API를 가져오는 경우 (이번달 매주 월요일 데이터 가져오기)
+export const getDay = () => {
+    return fetch(`${API_URL}`)
+        .then(res => res.json())
+        .then(json => json)
+}
+
+
+
+
+// [예시3] 채팅
+export let chattingLog = [{
+  id: 0,
+  writer: "admin",
+  description: "HELLO"
+}];
+

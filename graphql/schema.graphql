@@ -11,13 +11,21 @@ type Day {
     nation: String
 }
 
+type Chat {
+  id: Int!
+  writer: String!
+  description: String!
+}
+
 type Query {
     movies: [Movie]!
     movie(id: Int!): Movie
     day: [Day]
+    chatting: [Chat]!
 }
 
 type Mutation {
     addMovie(name: String!, score: Int!): Movie!
     deleteMovie(id: Int!): Boolean!
+    write(writer: String!, description: String!): String!
 }

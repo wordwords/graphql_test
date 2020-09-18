@@ -36,3 +36,15 @@ schema.graphql은 사용자가 뭘 할지에 대해 정의한다.
 이걸 mutation이라고 한다. 내 서버에서 혹은 DB에서 메모리에서 정보 바꿀 때.
 
 이제 우리가 GraphQL 서버에 할건 어떤 mutation 그리고 어떤 Query들을 우리가 가졌는지 알려주는 것이다.
+
+
+-------------------------------
+
+schema.graphql에서 아래와 같이 쓰면 person이 array라는 거다.
+우리는 다수의 person을 보낼거다. 이때 오직 한 person에 접근하려면 ID가 필요하다.
+
+type Query {
+    people: [Person]!
+    person(id: Int): Person     // 여기서 리턴할건 우리가 찾은 person
+}
+

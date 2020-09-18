@@ -10,9 +10,18 @@ const server = new GraphQLServer({
 server.start(() => console.log("서버가 실행됨"))
 
 
-// 여기까지 세팅된 상태에서 localhost:4000에 들어가서 아래 문구를 치면 값이 나온다.
-// {
+// [값추가]
+// mutation {
+//   addMovie(name: "새영화", score:9) {
+//     name 
+//   }
+// }
+
+
+// [넣은값 확인]
+// query {
 //   movies {
-//     id, name, score
+//     name
+//     score
 //   }
 // }

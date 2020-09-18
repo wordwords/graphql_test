@@ -1,6 +1,12 @@
-// schema.graphql이라는 파일은 'name'을 받아오겠다는 '설명'일 뿐이고, 
-// 실제로 그 Query를 resolve(해결)하는 것은 resolvers.js 파일이다.
+// schema.graphql이라는 파일은 'name'을 받아오겠다는 '설명'일 뿐이고, 실제로 그 Query를 resolve(해결)하는 것은 resolvers.js 파일이다.
 import { getMovies, getById, addMovie, deleteMovie, getDay, chattingLog } from "./db"
+import { PubSub } from "graphql-yoga";
+
+// 구독 추가
+const pubsub = new PubSub();
+const NEW_CHAT = "NEW_CHAT";
+
+
 
 const resolvers = {
     Query: {
@@ -24,7 +30,21 @@ const resolvers = {
                 description
             };
             chattingLog.push(newChat);
+
+            // 구독 추가
+            pubsub.publish(NEW_CHAT, {
+                newChat
+            })
+
             return "YES";
+        }
+    },
+
+    // 구독 추가
+    Subscription: {
+        newChat: {
+            subscribe: (_, __, { pubsub }) =>
+                pubsub.asyncIterator(NEW_CHAT)
         }
     }
 }

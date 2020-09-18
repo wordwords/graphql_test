@@ -8,10 +8,12 @@ schema.graphql은 사용자가 뭘 할지에 대해 정의한다.
 schema.graphql에서 아래와 같이 쓰면 person이 array라는 거다.
 우리는 다수의 person을 보낼거다. 이때 오직 한 person에 접근하려면 ID가 필요하다.
 
+```
 type Query {
     people: [Person]!
     person(id: Int): Person     // 여기서 리턴할건 우리가 찾은 person
 }
+```
 
 -------------------------------
 

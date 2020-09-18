@@ -21,13 +21,9 @@ export const people = [
     },
 ]; 
 
-// Playground에서는 이런 식으로 날린다.
-//   query {
-//     people {
-//       id
-//     }
-//   }
 
-
-
-
+// people 배열 안에 있는 모든 Object 확인후 조건에 맞는걸 return
+export const getById = id => {
+    const filteredPeople = people.filter(person => person.id === String(id));
+    return filteredPeople[0]
+}

@@ -4,9 +4,17 @@ type Movie {
     score: Int!
 }
 
+type Day {
+    date: String
+    name: String
+    category: String
+    nation: String
+}
+
 type Query {
     movies: [Movie]!
     movie(id: Int!): Movie
+    day: [Day]
 }
 
 type Mutation {

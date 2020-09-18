@@ -1,3 +1,15 @@
+import fetch from "node-fetch";
+const API_URL = "https://api.manana.kr/calendar.json";
+
+export const getDay = () => {
+
+    // 저 API 주소를 주소창에 입력하면 JSON 데이터가 뜨는데, 그게 어떤 형태로 들어오는지 콘솔 로그로 확인 필요 (상황에 따라 json => json.data 이런 식으로 작성해야 한다)
+    return fetch(`${API_URL}`)
+        .then(res => res.json())
+        .then(json => json)
+}
+
+
 // 이 부분을 데이터베이스에서 가져온 데이터로 교체해야 함
 // people에 해당하는 array를 만들자
 let movies = [
